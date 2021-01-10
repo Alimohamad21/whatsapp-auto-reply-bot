@@ -65,8 +65,7 @@ def auto_reply():
                     last_message[contact_name] = message_to_be_sent  # updates current last message in chat
                     sendButton = driver.find_element_by_xpath(
                         '/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div[3]')
-                    if contact_name=="Test5" or contact_name=="Test4" or contact_name=="Test3" or contact_name=="Test2" or contact_name=="Test":
-                        sendButton.click()  # clicks the send button for the message to be sent
+                    sendButton.click()  # clicks the send button for the message to be sent
                     file_write(contact_name, chat_messages[-1].text, message_to_be_sent)
                     continue
         print("All last messages:{}".format(last_message))  # prints last message of every watched chat
@@ -80,8 +79,7 @@ def auto_reply():
                 continue
             msgBox.send_keys(message_to_be_sent)
             sendButton = driver.find_element_by_xpath('/html/body/div[1]/div/div/div[4]/div/footer/div[1]/div[3]')
-            if contact_name == "Test5" or contact_name == "Test4" or contact_name == "Test3" or contact_name == "Test2" or contact_name == "Test":
-                sendButton.click()
+            sendButton.click()
             last_message[contact_name] = message_to_be_sent  # send message and update last message sent
             auto_reply_count[contact_name] += 1
             file_write(contact_name, chat_messages[-1].text, message_to_be_sent)
